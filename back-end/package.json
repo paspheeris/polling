@@ -1,0 +1,29 @@
+{
+  "name": "voting-app",
+  "version": "0.0.1",
+  "private": true,
+  "now": {
+    "dotenv": ".env.now"
+  },
+  "scripts": {
+    "start": "node ./bin/www",
+    "dev": "node-dev ./bin/www",
+    "loadSample": "node ./data/load-sample-data.js",
+    "deleteData": "node ./data/load-sample-data.js --delete"
+  },
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.3",
+    "dotenv": "^4.0.0",
+    "express": "~4.15.2",
+    "mongoose": "^4.11.9",
+    "morgan": "~1.8.1",
+    "node-fetch": "^1.7.2",
+    "pug": "~2.0.0-beta11",
+    "serve-favicon": "~2.4.2"
+  },
+  "devDependencies": {
+    "cors": "^2.8.4"
+  }
+}

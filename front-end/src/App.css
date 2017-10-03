@@ -1,0 +1,60 @@
+.pollsDisplay-wrapper {
+    width: 100vw;
+    justify-content: center;
+    flex-wrap: wrap;
+    display: flex;
+}
+
+.pollsDisplay-topText {
+    flex-basis: 100%;
+    max-width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.LandingPage-topText {
+    font-size: 4em;
+}
+
+.PollVoteView {
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+canvas {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.LandingPage-wrapper {
+    max-width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    /* justify-content: center; */
+    align-items: center;
+}
+
+.ballotBox-image {
+    width: 40%;
+}
+
+.LandingPage-lowerSegment {
+    flex-basis: 100%;
+    min-height: 80%;
+    display: flex;
+}
+
+.PollForm-wrapper {
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+.features-list {
+    font-size: 1.5em;
+}
+
+.ui.divider {
+    width: 100%;
+}
