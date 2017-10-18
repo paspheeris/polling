@@ -103,7 +103,7 @@ class PollCreateEdit extends Component {
     return (
       <div className="PollCreateEdit-wrapper">
         {this.areDuplicateFormChoices() && <Message header='Poll choices must be unique' error />}
-        <PollForm question={this.state.question} choices={this.state.allChoices} handleTitleChange={this.handleTitleChange} handleChoiceChange={this.handleChoiceChange} mode={mode} submitPoll={this.submitPoll} areDuplicateFormChoices={this.areDuplicateFormChoices()} />
+        <PollForm className="PollForm-wrapper" question={this.state.question} choices={this.state.allChoices} handleTitleChange={this.handleTitleChange} handleChoiceChange={this.handleChoiceChange} mode={mode} submitPoll={this.submitPoll} areDuplicateFormChoices={this.areDuplicateFormChoices()} />
         <div className="PollVoteView-canvas-wrapper">
           <SinglePollDisplay poll={this.state} />
         </div>

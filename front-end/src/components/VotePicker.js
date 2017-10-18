@@ -49,7 +49,7 @@ class VotePicker extends Component {
     const voteButtonIsActive = this.state.optionInputForm || this.state.currentVoteOption;
     return (
       <div className="VotePicker-Form-wrapper">
-        <Form className="VotePicker-Form">
+        <Form className="Poll-form">
           <Form.Field>
             <label>Vote Choice:</label>
           </Form.Field>
