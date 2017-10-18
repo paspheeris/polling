@@ -63,13 +63,11 @@ function thunkCreate(apiMethod, type) {
       dispatch({ type });
       return apiMethod(payload)
         .then(response => {
-          console.log('raw response:', response);
           return response.json();
         })
         .then(responseData => {
           //Data received from the api; merge it with the payload data 
           //from when the action initiated
-          console.log('parsed responseData:', responseData);
           payload = { ...payload, responseData };
           dispatch({
             type,
