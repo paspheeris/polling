@@ -21,6 +21,7 @@ app.use(express.static(path.join(__dirname, 'build')));
 
 //Connect to our Database and handle a bad connection
 // console.log('PROCESS CHEXCK', process.env.DATABASE);
+console.log('provess.env.NODE_ENV', process.env.NODE_ENV);
 mongoose.connect(process.env.DATABASE);
 mongoose.Promise = global.Promise; //tell mongoose to use ES6 promises
 mongoose.connection.on('error', (err) => {

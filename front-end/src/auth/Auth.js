@@ -11,7 +11,7 @@ class Auth {
     domain: 'paspheeris.auth0.com',
     clientID: 'v_yjKK_mmfZYpiRW28xu6rxVz99lGTH9',
     // redirectUri: 'http://localhost:7777/profile/',
-    redirectUri: 'http://localhost:3000/profile',
+    redirectUri: 'https://shrouded-brook-53543.herokuapp.com/profile',
     audience: 'https://paspheeris.auth0.com/userinfo',
     responseType: 'token id_token',
     scope: 'openid profile'
@@ -21,7 +21,7 @@ class Auth {
     this.auth0.authorize();
   }
   handleAuthentication(hash, res, rej) {
-    this.auth0.parseHash({hash}, (err, authResult) => {
+    this.auth0.parseHash({ hash }, (err, authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
         let expires_at = this.setSession(authResult);
         let obj = {
@@ -67,13 +67,13 @@ class Auth {
     return accessToken;
   }
   getProfile(res, rej) {
-  let accessToken = this.getAccessToken();
-  this.auth0.client.userInfo(accessToken, (err, profile) => {
-    if (profile) {
-      res(profile);
-    }
-    rej(err, profile);
-  });
-}
+    let accessToken = this.getAccessToken();
+    this.auth0.client.userInfo(accessToken, (err, profile) => {
+      if (profile) {
+        res(profile);
+      }
+      rej(err, profile);
+    });
+  }
 }
 export default new Auth();
