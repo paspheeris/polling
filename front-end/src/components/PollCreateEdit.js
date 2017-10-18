@@ -31,32 +31,32 @@ class PollCreateEdit extends Component {
   handleChoiceChange(e) {
     const ind = parseInt(e.target.dataset.something, 10);
     //Typing into the empty field
-  if(e.target.name === '') {
-    this.setState({
-      allChoices:  [...this.state.allChoices, e.target.value],
-      votesByChoice: this.state.votesByChoice.concat({choiceName: e.target.value, count: 0})
-    })
-  }
-  //Backspace deleting a field 
-  else if(!e.target.value) {
-    this.setState({
-      allChoices: this.state.allChoices.filter(el => el !== e.target.name),
-      votesByChoice: this.state.votesByChoice.filter(choice => choice.choiceName !== e.target.name)
-    });
-  }
-  //Modifying an existing field
-  else {
-    this.setState({
-      allChoices: this.state.allChoices.map((el, i) => {
-        if(i === ind) return e.target.value;
-        return el;
-      }),
-      votesByChoice: this.state.votesByChoice.map((choice, i) => {
-        if(i === ind) return {choiceName: e.target.value, count: choice.count};
-        return choice;
+    if (e.target.name === '') {
+      this.setState({
+        allChoices: [...this.state.allChoices, e.target.value],
+        votesByChoice: this.state.votesByChoice.concat({ choiceName: e.target.value, count: 0 })
       })
-    })
-  }
+    }
+    //Backspace deleting a field 
+    else if (!e.target.value) {
+      this.setState({
+        allChoices: this.state.allChoices.filter(el => el !== e.target.name),
+        votesByChoice: this.state.votesByChoice.filter(choice => choice.choiceName !== e.target.name)
+      });
+    }
+    //Modifying an existing field
+    else {
+      this.setState({
+        allChoices: this.state.allChoices.map((el, i) => {
+          if (i === ind) return e.target.value;
+          return el;
+        }),
+        votesByChoice: this.state.votesByChoice.map((choice, i) => {
+          if (i === ind) return { choiceName: e.target.value, count: choice.count };
+          return choice;
+        })
+      })
+    }
   }
   submitPoll(e) {
     if (this.props.mode === 'edit') {
@@ -98,13 +98,13 @@ class PollCreateEdit extends Component {
     if (this.state.redirect) {
       return <Redirect to={this.state.redirect} />
     }
-    const {   mode, userId } = this.props;
+    const { mode, userId } = this.props;
     if (!userId) return (<LoginNotice message="You must be logged in to create or edit a poll." />);
     return (
-      <div>
+      <div className="PollCreateEdit-wrapper">
         {this.areDuplicateFormChoices() && <Message header='Poll choices must be unique' error />}
-        <PollForm question={this.state.question} choices={this.state.allChoices} handleTitleChange={this.handleTitleChange} handleChoiceChange={this.handleChoiceChange} mode={mode} submitPoll={this.submitPoll} areDuplicateFormChoices={this.areDuplicateFormChoices()}/>
-        <div>
+        <PollForm question={this.state.question} choices={this.state.allChoices} handleTitleChange={this.handleTitleChange} handleChoiceChange={this.handleChoiceChange} mode={mode} submitPoll={this.submitPoll} areDuplicateFormChoices={this.areDuplicateFormChoices()} />
+        <div className="PollVoteView-canvas-wrapper">
           <SinglePollDisplay poll={this.state} />
         </div>
       </div>
