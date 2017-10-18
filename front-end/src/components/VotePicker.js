@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 // import PropTypes from 'prop-types';
-import {Form,   Select, Button, Divider } from 'semantic-ui-react'
+import { Form, Select, Button, Divider } from 'semantic-ui-react'
 
 
 // const propTypes = {}
@@ -44,23 +44,25 @@ class VotePicker extends Component {
   }
 
   render() {
-    const dropdownOptions = this.allChoices.map((choice, ind) => {return {key: choice, value: choice, text: choice}})
+    const dropdownOptions = this.allChoices.map((choice, ind) => { return { key: choice, value: choice, text: choice } })
     const dropdownIsDisabled = this.state.optionInputForm ? true : false;
     const voteButtonIsActive = this.state.optionInputForm || this.state.currentVoteOption;
     return (
-      <Form className="VotePicker-Form">
-        <Form.Field>
-        <label>Vote Choice:</label>
-        </Form.Field>
-        <Select placeholder="Choose an option..." options={dropdownOptions} 
-          disabled={dropdownIsDisabled} onChange={this.handleVoteChoiceChange}/>
-        <Divider horizontal>or</Divider>
-        <Form.Field>
-          <label>Enter your own option:</label>
-          <input placeholder="choice..." value={this.state.optionInputForm} onChange={this.handleOptionInput}/>
-        </Form.Field>
-        <Button disabled={!voteButtonIsActive} color={voteButtonIsActive ? 'green' : 'grey'} type="submit" onClick={this.handleVoteSubmit}>Vote!</Button>
-      </Form>
+      <div className="VotePicker-Form-wrapper">
+        <Form className="VotePicker-Form">
+          <Form.Field>
+            <label>Vote Choice:</label>
+          </Form.Field>
+          <Select placeholder="Choose an option..." options={dropdownOptions}
+            disabled={dropdownIsDisabled} onChange={this.handleVoteChoiceChange} />
+          <Divider horizontal>or</Divider>
+          <Form.Field>
+            <label>Enter your own option:</label>
+            <input placeholder="choice..." value={this.state.optionInputForm} onChange={this.handleOptionInput} />
+          </Form.Field>
+          <Button disabled={!voteButtonIsActive} color={voteButtonIsActive ? 'green' : 'grey'} type="submit" onClick={this.handleVoteSubmit}>Vote!</Button>
+        </Form>
+      </div>
     )
   }
 }

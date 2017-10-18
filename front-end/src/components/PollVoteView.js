@@ -12,7 +12,7 @@ const PollVoteView = ({ poll, _id, actions, votePending, voteError }) => {
   return (
     <div className="PollVoteView">
       <VotePicker allChoices={poll.allChoices} _id={_id} submitVote={actions.submitVote} votePending={votePending} voteError={voteError} />
-      <div>
+      <div className="PollVoteView-canvas-wrapper">
         <SinglePollDisplay poll={poll} votePending={votePending} voteError={voteError} />
       </div>
     </div>

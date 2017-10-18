@@ -17,11 +17,34 @@
 }
 
 .PollVoteView {
-    max-width: 80%;
-    margin: 0 auto;
+    display: flex;
+}
+
+
+/* Should normally just be able to user 'flex-wrap: wrap'
+   but that doesn't cause canvas.js to redraw/resize the chart */
+
+@media (max-width: 750px) {
+    .PollVoteView {
+        flex-direction: column;
+    }
+}
+
+.VotePicker-Form-wrapper {
+    flex: 1;
+}
+
+.VotePicker-Form {
+    padding: 2em;
+}
+
+.PollVoteView-canvas-wrapper {
+    flex: 1;
 }
 
 canvas {
+    margin: 0 auto;
+    max-width: 600px;
     margin-top: 15px;
     margin-bottom: 15px;
 }
