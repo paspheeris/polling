@@ -15,6 +15,7 @@ class Auth {
     redirectUri: process.env && process.env.NODE_ENV === 'development'
       ? 'http://localhost:3000/profile'
       : 'https://shrouded-brook-53543.herokuapp.com/profile',
+    // redirectUri: 'https://shrouded-brook-53543.herokuapp.com/profile',
     audience: 'https://paspheeris.auth0.com/userinfo',
     responseType: 'token id_token',
     scope: 'openid profile'
